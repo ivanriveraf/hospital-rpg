@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "9ceff848-5ceb-4c6b-b8b6-6b6143c8673a",
+        "name": "A man nurse character light",
+        "prompt": "A man nurse character light blue clothes long hair ",
+        "size": {
+          "width": 92,
+          "height": 92
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-07T19:43:33.694692+00:00"
+      },
+      "folder": "A_man_nurse_character_light",
+      "frames": {
+        "rotations": {
+          "south": "A_man_nurse_character_light/rotations/south.png",
+          "south-east": "A_man_nurse_character_light/rotations/south-east.png",
+          "east": "A_man_nurse_character_light/rotations/east.png",
+          "north-east": "A_man_nurse_character_light/rotations/north-east.png",
+          "north": "A_man_nurse_character_light/rotations/north.png",
+          "north-west": "A_man_nurse_character_light/rotations/north-west.png",
+          "west": "A_man_nurse_character_light/rotations/west.png",
+          "south-west": "A_man_nurse_character_light/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-07T19:55:18.300356"
+}

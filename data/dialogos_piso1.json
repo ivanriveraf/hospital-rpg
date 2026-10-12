@@ -1,0 +1,91 @@
+{
+  "dr_ramirez": {
+    "nombre": "Dr. Ramírez",
+    "rol": "Médico Jefe de Urgencias",
+    "item_acepta": "Paquete Jeringas 5ml ×20",
+    "texto_recibe_item": "¡Las jeringas! Bendito seas. Estaba a punto de pedirle a un paciente que aguantara la respiración hasta el jueves.",
+    "mision_entrega": "conseguir_jeringas",
+    "texto_completado": "Gracias por las jeringas. Urgencias vuelve a funcionar... bueno, todo lo que Urgencias puede 'funcionar' un lunes.",
+    "texto_fallido": "Lo que te pedí nunca llegó y tuve que improvisar con lo que había. ¿Sabes lo que es improvisar en Urgencias? Yo tampoco quiero volver a saberlo. Mañana espero más de ti.",
+    "dialogos": [
+      {
+        "id": 0,
+        "texto": "Buenos días. Necesito 20 jeringas de 5ml antes de las 14:00. Llevo tres cafés y cero jeringas, y te aseguro que esa proporción es peligrosa. ¿Puedes encargarte?",
+        "opciones": [
+          { "texto": "Claro, lo tengo listo.", "reputacion": 5, "costo_tiempo": 5, "mision": "conseguir_jeringas", "siguiente": 1 },
+          { "texto": "Voy a ver qué hay.", "reputacion": -2, "costo_tiempo": 3, "siguiente": 2 },
+          { "texto": "No es mi turno.", "reputacion": -20, "costo_tiempo": 1, "siguiente": 3 }
+        ]
+      },
+      { "id": 1, "seguimiento": true, "texto": "Perfecto. Estériles, por favor. La última vez me trajeron jeringas de... mejor no te cuento de dónde. Ve a bodega y usa el sistema de pedido.", "opciones": [{ "texto": "Entendido (y un poco preocupado).", "siguiente": -1 }] },
+      { "id": 2, "texto": "'Voy a ver qué hay' es lo que dice mi sobrino cuando le pido que estudie. Date prisa, y si no hay, avísame de inmediato.", "opciones": [{ "texto": "De acuerdo.", "siguiente": -1 }] },
+      { "id": 3, "texto": "Curioso. La salud de los pacientes tampoco mira el horario. Su actitud será reportada a jefatura.", "opciones": [{ "texto": "(Retirarse en silencio)", "siguiente": -1 }] }
+    ]
+  },
+  "recepcionista_ana": {
+    "nombre": "Recepcionista Ana",
+    "rol": "Recepcionista",
+    "mision_entrega": "registrar_paciente",
+    "texto_fallido": "La ficha quedó sin entregar y Don Roberto me contó la historia de su operación del 87 por TERCERA vez. Esta me la debes, técnico.",
+    "dialogos": [
+      {
+        "id": 0,
+        "texto": "¡Hola! ¿Me salvas la vida? Don Roberto lleva una hora esperando su ficha y ya me contó dos veces la historia de su operación del 87. Hay que llevarla a la habitación 105 (Piso 3).",
+        "opciones": [
+          { "texto": "Yo la llevo. Dame la ficha.", "reputacion": 8, "costo_tiempo": 5, "mision": "registrar_paciente", "da_item": "Ficha de Don Roberto", "desc_item": "Ficha clínica — Hab. 105 (Piso 3)", "siguiente": 1 },
+          { "texto": "No es mi área.", "reputacion": -10, "costo_tiempo": 1, "siguiente": 3 }
+        ]
+      },
+      { "id": 1, "seguimiento": true, "texto": "¡Gracias! Habitación 105, piso 3. Y no la pierdas, que la última ficha extraviada terminó en la cafetería con una mancha de sopa.", "opciones": [{ "texto": "La cuidaré como a mi sueldo.", "siguiente": -1 }] },
+      { "id": 2, "completado": true, "texto": "¡Muchas gracias por llevar la ficha! Don Roberto quedó tan contento que dijo que te va a presentar a su nieta. Yo que tú me preparo.", "opciones": [{ "texto": "Es parte del trabajo... creo.", "siguiente": -1 }] },
+      { "id": 3, "texto": "Está bien... lo haré yo sola. Como el registro, el teléfono, los turnos y la fotocopiadora. Todo yo.", "opciones": [{ "texto": "(Alejarse con culpa)", "siguiente": -1 }] }
+    ]
+  },
+  "farmaceutico_luis": {
+    "nombre": "Farmacéutico Luis",
+    "rol": "Farmacéutico",
+    "mision_entrega": "receta_urgente",
+    "texto_completado": "Gracias por dispensar las recetas. Los pacientes de UCI ya tienen sus medicamentos, y yo recuperé el 40% de mi paz mental.",
+    "texto_fallido": "El encargo quedó sin hacer. Los pacientes esperando y yo inventando excusas... y ya sabes que mi imaginación llega hasta 'el sistema está lento'.",
+    "items_entrega": {
+      "Caja Paracetamol ×30": {
+        "texto": "¡El paracetamol! Gracias. Con el stock lleno hasta yo me siento con menos dolor de cabeza, y eso que lo mío es crónico: se llama 'inventario'.",
+        "mision": "stock_analgesicos",
+        "texto_completado": "El estante de analgésicos quedó impecable. Si el sistema y la estantería dicen lo mismo, hoy es un día histórico."
+      }
+    },
+    "dialogos": [
+      {
+        "id": 0,
+        "texto": "Oye, tengo recetas urgentes de UCI acumulándose como mi ropa sin planchar. ¿Puedes abrir el panel de farmacia y ayudarme a dispensarlas?",
+        "opciones": [
+          { "texto": "Sí, abro el panel ahora.", "reputacion": 10, "costo_tiempo": 8, "mision": "receta_urgente", "siguiente": 1 },
+          { "texto": "¿Tengo autorización?", "costo_tiempo": 3, "siguiente": 2 },
+          { "texto": "No puedo ahora.", "reputacion": -5, "costo_tiempo": 1, "siguiente": 3 }
+        ]
+      },
+      { "id": 1, "seguimiento": true, "texto": "Gracias. Las del Dr. Vargas son las urgentes. Y verifica el stock antes de dispensar: el sistema dice una cosa, la estantería dice otra, y yo ya no sé a quién creerle.", "opciones": [{ "texto": "Entendido.", "siguiente": -1 }] },
+      { "id": 2, "texto": "Con mi supervisión, sí. Es una urgencia, no una auditoría. Adelante.", "opciones": [{ "texto": "De acuerdo.", "siguiente": 1 }] },
+      { "id": 3, "texto": "Llevan 2 horas esperando. Voy a buscar a alguien más... aunque 'alguien más' en este hospital normalmente significa 'yo'.", "opciones": [{ "texto": "(Sin respuesta)", "siguiente": -1 }] }
+    ]
+  },
+  "bodeguero_pedro": {
+    "nombre": "Bodeguero Pedro",
+    "rol": "Encargado de Bodega",
+    "texto_fallido": "El pedido nunca se hizo. Cuando nos quedemos sin guantes, pondré tu nombre en el acta. Con mayúsculas. Y subrayado. Dos veces.",
+    "dialogos": [
+      {
+        "id": 0,
+        "texto": "¡Buenas! Llevo días avisando que los guantes están por acabarse. Mandé tres correos, dos notas y hasta una paloma mensajera. ¿Puedes hacer el pedido desde el sistema de bodega?",
+        "opciones": [
+          { "texto": "Ahora mismo abro bodega.", "reputacion": 12, "costo_tiempo": 10, "mision": "pedido_bodega", "siguiente": 1 },
+          { "texto": "¿Cuántos quedan?", "costo_tiempo": 2, "siguiente": 2 },
+          { "texto": "No es mi problema.", "reputacion": -15, "costo_tiempo": 1, "siguiente": 3 }
+        ]
+      },
+      { "id": 1, "seguimiento": true, "texto": "¡Por fin alguien que actúa! Revisa también los sueros, que algunos están más caducados que mi carnet del gimnasio.", "opciones": [{ "texto": "Lo verifico todo.", "siguiente": -1 }] },
+      { "id": 2, "texto": "Quedan 8 cajas. Con el ritmo de urgencias, en dos días estaremos atendiendo con guantes de cocina. Y no, no es chiste, ya pasó en 2019.", "opciones": [{ "texto": "Pido reposición ahora.", "reputacion": 5, "siguiente": 1 }] },
+      { "id": 3, "texto": "Pues cuando urgencias se quede sin guantes, les diré que 'no era tu problema'. Con nombre y apellido.", "opciones": [{ "texto": "(Ignorar con elegancia)", "siguiente": -1 }] }
+    ]
+  }
+}

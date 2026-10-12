@@ -1,0 +1,15 @@
+# Godot
+.godot/
+*.tmp
+
+# Builds exportados
+*.exe
+*.zip
+*.pck
+
+# Musica (origen por confirmar): no se incluye en el repo
+assets/music/*.mp3
+assets/music/*.mp3.import
+
+# Documentos internos
+INFORME_MEJORAS.md

@@ -1,0 +1,92 @@
+{
+  "dr_vargas": {
+    "nombre": "Dr. Vargas",
+    "rol": "Cirujano Jefe",
+    "item_acepta": "Kit Quirúrgico",
+    "texto_recibe_item": "Perfecto. El kit está completo. Ya podemos operar. Y llegaste antes que el anestesista, lo cual técnicamente te convierte en mi persona favorita de hoy.",
+    "mision_entrega": "kit_quirurgico",
+    "texto_fallido": "El kit no llegó a tiempo y tuve que retrasar la cirugía. En 20 años nunca me había pasado. No busco culpables... miento, sí busco, y tienen tu cara.",
+    "dialogos": [
+      {
+        "id": 0,
+        "texto": "Técnico, tengo una operación en 3 horas. Necesito el kit completo: 10 jeringas 10ml, 4 sueros IV y 2 cajas de guantes nitrilo. Sin el kit no hay cirugía, y sin cirugía el paciente se queda con mi charla motivacional, que es bastante peor.",
+        "opciones": [
+          { "texto": "Confirmo disponibilidad y lo preparo.", "reputacion": 10, "mision": "kit_quirurgico", "siguiente": 1 },
+          { "texto": "Voy a verificar el stock primero.", "reputacion": 2, "siguiente": 2 },
+          { "texto": "No tengo autorización para acceder a quirófano.", "reputacion": -8, "siguiente": 3 }
+        ]
+      },
+      { "id": 1, "texto": "Excelente actitud. Todo en la antesala a las 13:30 en punto. La puntualidad aquí salva vidas. El bisturí también, pero la puntualidad va primero.", "opciones": [{ "texto": "Entendido, doctor.", "siguiente": -1 }] },
+      { "id": 2, "texto": "Hazlo rápido. Si falta algo, avísame antes de las 13:00. Después de esa hora estaré lavándome las manos durante diez minutos y no atiendo razones.", "opciones": [{ "texto": "De acuerdo.", "siguiente": -1 }] },
+      { "id": 3, "texto": "No te pido entrar a quirófano, te pido preparar un kit. Es como cocinar sin entrar al comedor. Habla con el jefe de servicio si quieres, pero ya.", "opciones": [{ "texto": "Está bien, me encargo.", "siguiente": -1 }] }
+    ]
+  },
+  "enfermera_sofia": {
+    "nombre": "Enf. Sofía",
+    "rol": "Enfermera UCI",
+    "item_acepta": "Sueros IV ×6 (UCI)",
+    "texto_recibe_item": "¡Gracias! Los ponemos de inmediato. Te debo un café... de la máquina no, uno de verdad.",
+    "mision_entrega": "sueros_uci_urgente",
+    "texto_completado": "Gracias por los sueros. Los pacientes están estabilizados, y yo casi también.",
+    "texto_fallido": "Los sueros nunca llegaron... tuve que pedirlos prestados a otro piso, y un favor entre pisos se paga caro. Que no se repita, por favor.",
+    "dialogos": [
+      {
+        "id": 0,
+        "texto": "¡Menos mal que llegaste! La UCI está con stock crítico de sueros IV. Tres pacientes en ventilación los necesitan AHORA. Y cuando digo 'ahora' no es el 'ahora' de mantenimiento, que significa 'el mes que viene'.",
+        "opciones": [
+          { "texto": "Bajo a bodega a buscarlos de inmediato.", "reputacion": 15, "mision": "sueros_uci_urgente", "siguiente": 1 },
+          { "texto": "¿Cuántos necesitas exactamente?", "siguiente": 2 },
+          { "texto": "Ya pedí el reabastecimiento, deberían llegar pronto.", "reputacion": -3, "siguiente": 3 }
+        ]
+      },
+      { "id": 1, "texto": "¡Gracias! Mínimo 6 sueros de 500ml. El de la cama 3 es el más crítico. Corre, pero corre estilo hospital: rápido y sin chocar con la camilla del pasillo.", "opciones": [{ "texto": "Ahora mismo vuelvo con ellos.", "siguiente": -1 }] },
+      { "id": 2, "texto": "6 de 500ml mínimo. Y por favor date prisa, que ya le dije al paciente que 'viene en camino' y odio mentir.", "opciones": [{ "texto": "En seguida.", "siguiente": 1 }] },
+      { "id": 3, "texto": "¿'Pronto'? ¡Los pacientes no funcionan con fechas estimadas de entrega! Esto no es una compra online. Ve a bodega ahora.", "opciones": [{ "texto": "Tienes razón, voy.", "reputacion": -5, "siguiente": 1 }] }
+    ]
+  },
+  "tecnico_carlos": {
+    "nombre": "Técnico Carlos",
+    "rol": "Técnico de Laboratorio",
+    "texto_fallido": "Lo que te pedí nunca llegó al laboratorio. Las muestras no esperan: fermentan. Hoy lo aprendimos de la peor manera posible.",
+    "items_entrega": {
+      "Paquete Gasas estériles ×25": {
+        "texto": "¡Las gasas! Perfecto. Justo íbamos a empezar a racionar como en las películas de náufragos. El laboratorio te lo agradece.",
+        "mision": "gasas_laboratorio",
+        "texto_completado": "Gracias por las gasas. Ya reabastecí las mesas de trabajo. Hoy el laboratorio funciona como reloj... suizo, no como el del pasillo que va 10 minutos atrasado."
+      }
+    },
+    "dialogos": [
+      {
+        "id": 0,
+        "texto": "Oye, ¿puedes llevar estas muestras al laboratorio? Son de urgencias y llevan esperando dos horas. A este paso van a fermentar y tendremos que cambiarles la etiqueta.",
+        "opciones": [
+          { "texto": "Sí, las llevo ahora mismo.", "reputacion": 8, "mision": "muestras_laboratorio", "siguiente": 1 },
+          { "texto": "¿Están correctamente etiquetadas?", "siguiente": 2 },
+          { "texto": "El transporte de muestras no es mi función.", "reputacion": -10, "siguiente": 3 }
+        ]
+      },
+      { "id": 1, "texto": "Perfecto. Entrégaselas a la Dra. Méndez en persona. Que no te las dejen en recepción del lab: ahí las cosas entran y desaparecen, como en el Triángulo de las Bermudas pero con batas.", "opciones": [{ "texto": "Entendido.", "siguiente": -1 }] },
+      { "id": 2, "texto": "Sí, yo mismo las etiqueté. Dos veces. La primera vez con la letra de médico que se me pegó del Dr. Vargas y no se entendía nada.", "opciones": [{ "texto": "Bien, las llevo.", "reputacion": 5, "siguiente": 1 }] },
+      { "id": 3, "texto": "En urgencias todos ayudamos. Pero tranquilo, buscaré a otro técnico... y me acordaré de esto en la ronda de despedida del viernes.", "opciones": [{ "texto": "Está bien, las llevo.", "reputacion": -3, "siguiente": 1 }] }
+    ]
+  },
+  "enf_jefa_garcia": {
+    "nombre": "Enf. Jefa García",
+    "rol": "Enfermera Jefe",
+    "texto_fallido": "El encargo quedó sin hacer. Llevo 20 años escuchando excusas, así que ahórratela: mañana lo quiero PRIMERO en tu lista. Antes que el café.",
+    "dialogos": [
+      {
+        "id": 0,
+        "texto": "Técnico, necesito el informe de inventario semanal para HOY. También verifica vendas y guantes. Y antes de que preguntes: no, 'casi terminado' no es un estado del informe.",
+        "opciones": [
+          { "texto": "Lo hago ahora. Tendré el informe en una hora.", "reputacion": 10, "mision": "informe_semanal", "siguiente": 1 },
+          { "texto": "¿Me puedes dar el formato del informe?", "siguiente": 2 },
+          { "texto": "¿No puede hacerlo el turno anterior?", "reputacion": -8, "siguiente": 3 }
+        ]
+      },
+      { "id": 1, "texto": "Bien. Stock actual, caducidades y pedidos pendientes. Sin excusas. Llevo 20 años aquí: ya las escuché todas, incluida 'se lo comió la trituradora'.", "opciones": [{ "texto": "A sus órdenes.", "siguiente": -1 }] },
+      { "id": 2, "texto": "Usa la hoja del sistema. Si no la tienes, pídela en administración, 3er piso. Sube por las escaleras, que el ascensor está 'en mantenimiento'... otra vez.", "opciones": [{ "texto": "De acuerdo.", "siguiente": 1 }] },
+      { "id": 3, "texto": "El turno anterior se fue hace tres horas. A menos que tengas una máquina del tiempo, el responsable eres tú. A trabajar.", "opciones": [{ "texto": "Entendido.", "siguiente": 1 }] }
+    ]
+  }
+}

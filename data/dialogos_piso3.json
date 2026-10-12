@@ -1,0 +1,97 @@
+{
+  "director_mendoza": {
+    "nombre": "Director Dr. Mendoza",
+    "rol": "Director del Hospital",
+    "texto_fallido": "Mi encargo quedó pendiente. La junta directiva pregunta y ya gasté mis tres mejores evasivas este mes. Que no se repita, técnico.",
+    "dialogos": [
+      {
+        "id": 0,
+        "texto": "Técnico, me han llegado quejas sobre la gestión de insumos. Necesito una auditoría completa del inventario para mañana. Y que conste: cuando digo 'completa' incluye esa caja del fondo de bodega que todos fingen no ver desde 2022.",
+        "opciones": [
+          { "texto": "Sí, director. Entrego el informe completo mañana a primera hora.", "reputacion": 15, "mision": "auditoria_inventario", "siguiente": 1 },
+          { "texto": "Puedo hacerlo, pero necesitaré acceso a todos los servicios.", "siguiente": 2 },
+          { "texto": "Eso requeriría horas extra no pagadas.", "reputacion": -20, "siguiente": 3 }
+        ]
+      },
+      { "id": 1, "texto": "Bien. Stock actual, caducidades y plan de reposición. Si encuentra algo grave, llámeme directamente. Si encuentra la engrapadora que perdí en marzo, también.", "opciones": [{ "texto": "A sus órdenes, director.", "siguiente": -1 }] },
+      { "id": 2, "texto": "Hablaré con los jefes de servicio. Tendrá acceso a todo. No quiero excusas, quiero resultados. Las excusas ya las fabrica mantenimiento y tienen el mercado saturado.", "opciones": [{ "texto": "Entendido.", "siguiente": 1 }] },
+      { "id": 3, "texto": "Interesante. ¿Quiere que llamemos a Recursos Humanos para discutir su... filosofía laboral? Tienen un sillón muy cómodo. Demasiado cómodo.", "opciones": [{ "texto": "Lo haré, director. Disculpe.", "reputacion": -10, "siguiente": 1 }] }
+    ]
+  },
+  "admin_torres": {
+    "nombre": "Administradora Torres",
+    "rol": "Jefa de Administración",
+    "texto_fallido": "El trámite quedó sin firmar y ahora tengo que reprogramar todo. Papeleo doble. Si escucha un grito desde administración... era yo.",
+    "dialogos": [
+      {
+        "id": 0,
+        "texto": "Buenos días. Necesito su firma para el pedido mensual de insumos. El director lo autorizó 'verbalmente', que en este hospital significa que lo gritó desde el otro extremo del pasillo.",
+        "opciones": [
+          { "texto": "Claro, ¿qué incluye el pedido?", "siguiente": 1 },
+          { "texto": "¿Por qué necesitan mi firma? Yo no autorizo compras.", "siguiente": 2 },
+          { "texto": "Firmado. ¿Algo más?", "reputacion": 5, "mision": "firma_pedido", "siguiente": 3 }
+        ]
+      },
+      { "id": 1, "texto": "Sueros IV (500 unidades), jeringas 5ml (1000 unidades), guantes nitrilo (50 cajas). El pedido estándar. Lo único no estándar aquí es que llegue a tiempo.", "opciones": [{ "texto": "Todo parece correcto. Firmo.", "reputacion": 8, "siguiente": 3 }] },
+      { "id": 2, "texto": "El protocolo exige la firma del técnico de turno. Es un trámite. Como el 90% de mi vida, en realidad.", "opciones": [{ "texto": "Entendido, está bien.", "siguiente": 1 }] },
+      { "id": 3, "texto": "Gracias. El pedido llega en 48 horas, o eso jura el proveedor. El mismo que juró lo mismo el mes pasado. Le aviso cuando esté en bodega.", "opciones": [{ "texto": "Perfecto, muchas gracias.", "siguiente": -1 }] }
+    ]
+  },
+  "paciente_roberto": {
+    "nombre": "Don Roberto",
+    "rol": "Paciente — Hab. 105",
+    "texto_fallido": "Joven, lo esperé todo el día... En fin, a mi edad esperar ya es un deporte, pero no me haga entrenarlo tanto, que me canso.",
+    "items_entrega": {
+      "Ficha de Don Roberto": {
+        "texto": "¡Mi ficha clínica! Por fin. Llevaba tanto esperando que ya me había aprendido las grietas del techo. Hay 14, por si le interesa.",
+        "mision": "registrar_paciente",
+        "texto_completado": "Ya entregué la ficha. Ahora a esperar al médico. ¿Sabe cuándo pasa visita? Mi récord de espera es de cuatro horas y media, y no me gustaría romperlo."
+      },
+      "Medicación de Don Roberto": {
+        "texto": "¡Gracias a Dios! Llevaba horas sin mis medicamentos. La cadera me estaba dando un concierto, y le aseguro que no era música clásica.",
+        "mision": "medicacion_roberto",
+        "texto_completado": "Ya tomé la medicación, gracias. Me siento mejor. Usted sí que es eficiente, no como el de la tele que pide refuerzos para todo."
+      }
+    },
+    "dialogos": [
+      {
+        "id": 0,
+        "texto": "Joven, llevo aquí desde las 8 de la mañana. Espero mi ficha de recepción y una medicación. A este paso me darán el alta por vejez... más vejez, quiero decir. ¿Sabe algo?",
+        "opciones": [
+          { "texto": "Voy a ver la ficha en recepción ahora mismo.", "reputacion": 3, "costo_tiempo": 2, "siguiente": 1 },
+          { "texto": "Miro si la farmacia tiene su medicación lista.", "reputacion": 3, "costo_tiempo": 2, "siguiente": 2 },
+          { "texto": "Aún no tengo nada, lo verifico.", "reputacion": -2, "costo_tiempo": 1, "siguiente": 3 }
+        ]
+      },
+      { "id": 1, "seguimiento": true, "texto": "Se lo agradezco. Mi hija lleva toda la mañana llamando. Ya van seis llamadas. A la séptima viene en persona, y eso sí que es una emergencia médica.", "opciones": [{ "texto": "Voy ahora mismo, señor Roberto.", "siguiente": -1 }] },
+      { "id": 2, "seguimiento": true, "texto": "Ay, muchas gracias. La cadera me está matando. Y eso que sobreviví a dos guerras... bueno, a dos matrimonios, que es parecido.", "opciones": [{ "texto": "Enseguida le traigo algo.", "siguiente": -1 }] },
+      { "id": 3, "texto": "Por favor, dese prisa. El médico ya debería haber pasado visita. Empiezo a sospechar que es un personaje mitológico, como el unicornio.", "opciones": [{ "texto": "Lo gestiono ahora.", "siguiente": -1 }] }
+    ]
+  },
+  "paciente_carmen": {
+    "nombre": "Sra. Carmen",
+    "rol": "Paciente — Hab. 112",
+    "texto_fallido": "Ay, joven, lo que le pedí nunca llegó. No se preocupe, para pasar el rato me tejí otra bufanda. La número cuatro. En pleno verano.",
+    "items_entrega": {
+      "Medicación de Sra. Carmen": {
+        "texto": "¡Mi medicación! Muchas gracias, joven. Ya me estaba preocupando. Y cuando me preocupo, tejo. Llevo dos bufandas y un gorro. En junio.",
+        "mision": "receta_urgente",
+        "texto_completado": "Gracias por traerme la medicación. Me siento mucho mejor. Le estoy tejiendo algo de agradecimiento. No pregunte qué es: ni yo lo sé todavía."
+      }
+    },
+    "dialogos": [
+      {
+        "id": 0,
+        "texto": "Disculpe, ¿ya llegaron mis resultados de laboratorio? Me dijeron 'esta mañana', pero en este hospital 'esta mañana' es un concepto muy flexible, como mi presión arterial.",
+        "opciones": [
+          { "texto": "Voy a verificarlo ahora mismo.", "reputacion": 8, "siguiente": 1 },
+          { "texto": "Eso lo maneja el médico, no yo.", "reputacion": -3, "siguiente": 2 },
+          { "texto": "¿Tiene el número de su solicitud?", "siguiente": 3 }
+        ]
+      },
+      { "id": 1, "texto": "Muchas gracias. Es que mi familia está esperando noticias. Mi hermana ya le encendió tres velas a tres santos distintos, por si acaso. ¿Se demora mucho?", "opciones": [{ "texto": "Lo averiguo en seguida y le traigo respuesta.", "siguiente": -1 }] },
+      { "id": 2, "texto": "Es que el médico tampoco sabe nada. Aquí nadie sabe nada. Deberían poner eso en el letrero de la entrada, mire que es información útil.", "opciones": [{ "texto": "Tiene razón, lo consulto yo mismo.", "reputacion": 3, "siguiente": 1 }] },
+      { "id": 3, "texto": "Aquí lo tengo... 2024-LAB-8832. Me lo aprendí de memoria. A mi edad una se aprende los números importantes: la cédula, el teléfono de los hijos y el código del laboratorio.", "opciones": [{ "texto": "Perfecto, con ese número lo busco.", "reputacion": 5, "siguiente": 1 }] }
+    ]
+  }
+}
