@@ -4,6 +4,16 @@
 
 RPG de gestión en 2D hecho en **Godot 4.6** con **GDScript**. Encarnas a un enfermero en su primera semana de trabajo en un hospital de tres pisos. Tienes que cumplir misiones, atender a pacientes y personal, administrar insumos y cuidar tu reputación antes de que termine cada turno.
 
+<p align="center">
+  <img src="docs/gameplay.gif" alt="Gameplay de Hospital RPG en el piso 1" width="720">
+</p>
+
+| Menú de inicio | Resumen del día |
+|---|---|
+| ![Menú de inicio](docs/menu.png) | ![Briefing con las misiones del lunes](docs/briefing.png) |
+| **Piso 1:** urgencias, recepción, farmacia y bodega | **Panel de misiones** |
+| ![Piso 1 del hospital](docs/piso1.png) | ![Panel de misiones](docs/misiones.png) |
+
 ## Características
 
 - **Una semana completa** (de lunes a viernes) con días cronometrados y un resumen de resultados al final de cada día.
